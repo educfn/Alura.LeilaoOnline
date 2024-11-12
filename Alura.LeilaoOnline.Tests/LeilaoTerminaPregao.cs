@@ -17,7 +17,9 @@ namespace Alura.LeilaoOnline.Tests
         double[] ofertas)
         {
             //Arrange - Cenário
-            var leilao = new Leilao("Van Gogh",valorDestino);
+            IModalidadeAvaliacao modalidade =
+                new OfertaSuperiorMaisProxima(valorDestino);
+            var leilao = new Leilao("Van Gogh",modalidade);
             var fulano = new Interessada("Fulano", leilao);
             var maria = new Interessada("Maria", leilao);
 
@@ -50,7 +52,8 @@ namespace Alura.LeilaoOnline.Tests
             double[] ofertas)
         {
             //Arrange - cenário
-            var leilao = new Leilao("Van Gogh");
+            var modalidade = new MaiorValor();
+            var leilao = new Leilao("Van Gogh", modalidade);
             var fulano = new Interessada("Fulano", leilao);
             var maria = new Interessada("Maria", leilao);
 
